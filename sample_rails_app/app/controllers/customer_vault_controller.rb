@@ -132,7 +132,7 @@ class CustomerVaultController < ApplicationController
 
         })
 
-        @response = get_sepa_client.customer_vault_service.create_sepa_mandate sepa_mandate_obj
+        @response = get_client.customer_vault_service.create_sepa_mandate sepa_mandate_obj
       rescue Exception => e
         @response = e
       end
@@ -149,7 +149,7 @@ class CustomerVaultController < ApplicationController
           profileID: "d2fd5221-6c83-40fd-a113-4078c855b50d" #"0bd8883e-6294-4691-b4aa-f0ef5ec2e18a"
         })
 
-        @response = get_bacs_client.customer_vault_service.create_bacs_mandate bacs_mandate_obj
+        @response = get_client.customer_vault_service.create_bacs_mandate bacs_mandate_obj
       rescue Exception => e
         @response = e
       end
@@ -164,24 +164,6 @@ class CustomerVaultController < ApplicationController
     SampleRailsApp::Application.config.paysafe_api_secret,
     Paysafe::Environment::TEST,
     SampleRailsApp::Application.config.paysafe_account_number
-    )
-  end
-
-  def get_sepa_client
-    @ach_client ||= Paysafe::PaysafeApiClient.new(
-    SampleRailsApp::Application.config.paysafe_api_key,
-    SampleRailsApp::Application.config.paysafe_api_secret,
-    Paysafe::Environment::TEST,
-    SampleRailsApp::Application.config.paysafe_sepa_account_number
-    )
-  end
-
-  def get_bacs_client
-    @ach_client ||= Paysafe::PaysafeApiClient.new(
-    SampleRailsApp::Application.config.paysafe_api_key,
-    SampleRailsApp::Application.config.paysafe_api_secret,
-    Paysafe::Environment::TEST,
-    SampleRailsApp::Application.config.paysafe_bacs_account_number
     )
   end
 

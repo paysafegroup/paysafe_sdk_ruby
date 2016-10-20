@@ -99,10 +99,10 @@ class ThreeDSecureController < ApplicationController
 
   def get_client
     @client ||= Paysafe::PaysafeApiClient.new(
-    SampleRailsApp::Application.config.paysafe_api_key_1,
-    SampleRailsApp::Application.config.paysafe_api_secret_1,
+    SampleRailsApp::Application.config.paysafe_api_key,
+    SampleRailsApp::Application.config.paysafe_api_secret,
     Paysafe::Environment::TEST,
-    SampleRailsApp::Application.config.paysafe_account_number_1
+    SampleRailsApp::Application.config.paysafe_account_number
     )
   end
 

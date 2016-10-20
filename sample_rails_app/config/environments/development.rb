@@ -32,20 +32,11 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
-  config.optimal_account_number = "1000032987"
-  config.optimal_api_key = "devcentre4651"
-  config.optimal_api_secret = "B-qa2-0-54b5374e-302d02147911306b5c6db4ad74e083803733163195c75ef902150095b4a21a5ea7f4c19b7b37aed1944490b59e785e"
+  config.paysafe_account_number = "1000032987"
+  config.paysafe_api_key = "devcentre4651"
+  config.paysafe_api_secret = "B-qa2-0-54b5374e-302d02147911306b5c6db4ad74e083803733163195c75ef902150095b4a21a5ea7f4c19b7b37aed1944490b59e785e"
 
-  config.optimal_account_number_1 = "89983472"
-  config.optimal_api_key_1 = "devcentre4628"
-  config.optimal_api_secret_1 = "B-qa2-0-548ef25d-302b0213119f70d83213f828bc442dfd0af3280a7b48b1021400972746f9abe438554699c8fa3617063ca4c69a"
-
-  config.optimal_ach_account_number = "1001057430"
-  config.optimal_eft_account_number = "1001057670"
-  config.optimal_sepa_account_number = "1001057620"
-  config.optimal_bacs_account_number = "1001057660"
-
-  # The currencyCode should match the currency of your Optimal account. 
+  # The currencyCode should match the currency of your paysafe account. 
   # The currencyBaseUnitsMultipler should in turn match the currencyCode.
   # Since the API accepts only integer values, the currencyBaseUnitMultiplier is used convert the decimal amount into the accepted base units integer value.
   config.currency_code = "USD" # for example: CAD

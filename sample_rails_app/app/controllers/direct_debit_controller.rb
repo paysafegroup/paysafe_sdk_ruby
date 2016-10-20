@@ -58,7 +58,7 @@ class DirectDebitController < ApplicationController
 
         })
 
-        @response = get_ach_client.direct_debit_service.submit_purchase_request purchase
+        @response = get_client.direct_debit_service.submit_purchase_request purchase
       rescue Exception => e
         @response = e
       end
@@ -97,7 +97,7 @@ class DirectDebitController < ApplicationController
           }
         })
 
-        @response = get_ach_client.direct_debit_service.submit_purchase_request purchase
+        @response = get_client.direct_debit_service.submit_purchase_request purchase
       rescue Exception => e
         @response = e
       end
@@ -133,7 +133,7 @@ class DirectDebitController < ApplicationController
 
         })
 
-        @response = get_eft_client.direct_debit_service.submit_purchase_request purchase
+        @response = get_client.direct_debit_service.submit_purchase_request purchase
       rescue Exception => e
         @response = e
       end
@@ -169,7 +169,7 @@ class DirectDebitController < ApplicationController
           }
         })
 
-        @response = get_eft_client.direct_debit_service.submit_purchase_request purchase
+        @response = get_client.direct_debit_service.submit_purchase_request purchase
       rescue Exception => e
         @response = e
       end
@@ -210,7 +210,7 @@ class DirectDebitController < ApplicationController
 
         })
 
-        @response = get_bacs_client.direct_debit_service.submit_purchase_request purchase
+        @response = get_client.direct_debit_service.submit_purchase_request purchase
       rescue Exception => e
         @response = e
       end
@@ -234,7 +234,7 @@ class DirectDebitController < ApplicationController
           }
         })
 
-        @response = get_bacs_client.direct_debit_service.submit_purchase_request purchase
+        @response = get_client.direct_debit_service.submit_purchase_request purchase
       rescue Exception => e
         @response = e
       end
@@ -270,7 +270,7 @@ class DirectDebitController < ApplicationController
 
         })
 
-        @response = get_sepa_client.direct_debit_service.submit_purchase_request purchase
+        @response = get_client.direct_debit_service.submit_purchase_request purchase
       rescue Exception => e
         @response = e
       end
@@ -291,7 +291,7 @@ class DirectDebitController < ApplicationController
           }
         })
 
-        @response = get_sepa_client.direct_debit_service.submit_purchase_request purchase
+        @response = get_client.direct_debit_service.submit_purchase_request purchase
       rescue Exception => e
         @response = e
       end
@@ -332,7 +332,7 @@ class DirectDebitController < ApplicationController
 
         })
 
-        @response = get_ach_client.direct_debit_service.submit_standalone_credit standalone_credit_obj
+        @response = get_client.direct_debit_service.submit_standalone_credit standalone_credit_obj
       rescue Exception => e
         @response = e
       end
@@ -380,7 +380,7 @@ class DirectDebitController < ApplicationController
           customerIp: params[:customerIp]
         })
 
-        @response = get_ach_client.direct_debit_service.submit_standalone_credit standalone_credit_obj
+        @response = get_client.direct_debit_service.submit_standalone_credit standalone_credit_obj
       rescue Exception => e
         @response = e
       end
@@ -416,7 +416,7 @@ class DirectDebitController < ApplicationController
 
         })
 
-        @response = get_eft_client.direct_debit_service.submit_standalone_credit standalone_credit_obj
+        @response = get_client.direct_debit_service.submit_standalone_credit standalone_credit_obj
       rescue Exception => e
         @response = e
       end
@@ -460,7 +460,7 @@ class DirectDebitController < ApplicationController
           }
         })
 
-        @response = get_eft_client.direct_debit_service.submit_standalone_credit standalone_credit_obj
+        @response = get_client.direct_debit_service.submit_standalone_credit standalone_credit_obj
       rescue Exception => e
         @response = e
       end
@@ -483,7 +483,7 @@ class DirectDebitController < ApplicationController
           }
         })
 
-        @response = get_bacs_client.direct_debit_service.submit_standalone_credit standalone_credit_obj
+        @response = get_client.direct_debit_service.submit_standalone_credit standalone_credit_obj
       rescue Exception => e
         @response = e
       end
@@ -492,41 +492,6 @@ class DirectDebitController < ApplicationController
 
   private
 
-  def get_ach_client
-    @ach_client ||= Paysafe::PaysafeApiClient.new(
-    SampleRailsApp::Application.config.paysafe_api_key,
-    SampleRailsApp::Application.config.paysafe_api_secret,
-    Paysafe::Environment::TEST,
-    SampleRailsApp::Application.config.paysafe_ach_account_number
-    )
-  end
-
-  def get_eft_client
-    @ach_client ||= Paysafe::PaysafeApiClient.new(
-    SampleRailsApp::Application.config.paysafe_api_key,
-    SampleRailsApp::Application.config.paysafe_api_secret,
-    Paysafe::Environment::TEST,
-    SampleRailsApp::Application.config.paysafe_eft_account_number
-    )
-  end
-
-  def get_sepa_client
-    @ach_client ||= Paysafe::PaysafeApiClient.new(
-    SampleRailsApp::Application.config.paysafe_api_key,
-    SampleRailsApp::Application.config.paysafe_api_secret,
-    Paysafe::Environment::TEST,
-    SampleRailsApp::Application.config.paysafe_sepa_account_number
-    )
-  end
-
-  def get_bacs_client
-    @ach_client ||= Paysafe::PaysafeApiClient.new(
-    SampleRailsApp::Application.config.paysafe_api_key,
-    SampleRailsApp::Application.config.paysafe_api_secret,
-    Paysafe::Environment::TEST,
-    SampleRailsApp::Application.config.paysafe_bacs_account_number
-    )
-  end
 
   def get_client
     @client ||= Paysafe::PaysafeApiClient.new(
