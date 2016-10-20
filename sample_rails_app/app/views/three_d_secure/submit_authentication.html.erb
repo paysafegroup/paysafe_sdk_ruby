@@ -1,0 +1,13 @@
+<h1>Submit Enrollment</h1>
+<% unless @response.nil? %>
+  <pre>
+  <%= YAML::dump(@response) %>
+  </pre>
+<% end %>
+<%= form_tag do %>
+  <%= field_set_tag "Submit Enrollment" do %>
+  	<%= render "shared/field", name: :merchantRefNum, default: SecureRandom.uuid %>
+  	<%= render "shared/field", name: :paRes, default: @paRes %>
+  <% end %>
+  <%= submit_tag "Submit", class: "btn btn-default" %>
+<% end %>

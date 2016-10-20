@@ -1,0 +1,23 @@
+<h1>Direct Debit</h1>
+<ul>
+	<li>Submit a Purchase Request
+		<ul>
+		  <li><%= link_to "Process an ACH purchase", direct_debit_purchase_ach_path %></li>
+		  <li><%= link_to "Process an ACH purchase using a payment token", direct_debit_purchase_ach_token_path %></li>
+		  <li><%= link_to "Process an EFT purchase", direct_debit_purchase_eft_path %></li>
+		  <li><%= link_to "Process an EFT purchase using a payment token", direct_debit_purchase_eft_token_path %></li>
+		  <li><%= link_to "Process an BACS purchase", direct_debit_purchase_bacs_path %></li>
+		  <li><%= link_to "Process an BACS purchase using a payment token", direct_debit_purchase_bacs_token_path %></li>
+		  <li><%= link_to "Process an SEPA purchase", direct_debit_purchase_sepa_path %></li>
+		  <li><%= link_to "Process an SEPA purchase using a payment token", direct_debit_purchase_sepa_token_path %></li>
+		</ul>
+	</li>
+	<li>Submit a Standalone Credit Request
+		<ul>
+			<li><%= link_to "Process an ACH standalone credit", direct_debit_standalone_credits_ach_path %></li>
+			<li><%= link_to "Process an ACH standalone credit using a payment token", direct_debit_standalone_credits_ach_token_path %></li>
+			<li><%= link_to "Process an EFT standalone credit", direct_debit_standalone_credits_eft_path %></li>
+			<li><%= link_to "Process an EFT standalone credit using a payment token", direct_debit_standalone_credits_eft_token_path %></li>
+			<li><%= link_to "Process a BACS standalone credit using a payment token", direct_debit_standalone_credits_bacs_token_path %></li>
+		</ul>
+</ul>

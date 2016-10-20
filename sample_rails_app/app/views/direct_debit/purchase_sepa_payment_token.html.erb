@@ -1,0 +1,16 @@
+<h1>Submit an SEPA Purchase Request Using Payment Token</h1>
+<% unless @response.nil? %>
+  <pre>
+  <%= YAML::dump(@response) %>
+  </pre>
+<% end %>
+
+<%= form_tag do %>
+  <%= field_set_tag "SEPA Purchase" do %>
+    <%= render "shared/field", name: :merchantRefNum, default: SecureRandom.uuid %>
+    <%= render "shared/field", name: :amount %>
+    <%= render "shared/field", name: :paymentToken, default: @paymentToken %>
+    
+  <% end %>
+  <%= submit_tag "Submit", class: "btn btn-default" %>
+<% end %>

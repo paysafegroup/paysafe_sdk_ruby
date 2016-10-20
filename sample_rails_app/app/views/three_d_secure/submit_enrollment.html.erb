@@ -1,0 +1,24 @@
+<h1>Submit Enrollment</h1>
+<% unless @response.nil? %>
+  <pre>
+  <%= YAML::dump(@response) %>
+  </pre>
+<% end %>
+<%= form_tag do %>
+  <%= field_set_tag "Submit Enrollment" do %>
+  	<%= render "shared/field", name: :merchantRefNum, default: SecureRandom.uuid %>
+    <%= render "shared/field", name: :amount %>
+    <%= render "shared/field", name: :currency, default: "USD" %>
+    <%= render "shared/field", name: :merchantUrl, label: "Merchant URL", default: "http://abc.com" %>
+    <%= render "shared/field", name: :card_number, default: "4444333322221111" %>
+    <%= content_tag :div, class: "form-group" do %>
+      <%= label_tag :card_exp_month %>
+      <%= select_month Date.today, { use_month_numbers: true }, { class: "form-control" } %>
+    <% end %>
+    <%= content_tag :div, class: "form-group" do %>
+      <%= label_tag :card_exp_year %>
+      <%= select_year Date.today, {}, { class: "form-control" } %>
+    <% end %>
+  <% end %>
+  <%= submit_tag "Submit", class: "btn btn-default" %>
+<% end %>

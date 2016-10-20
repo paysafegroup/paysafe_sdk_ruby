@@ -1,0 +1,15 @@
+<h1>Create Bank Account</h1>
+<% unless @response.nil? %>
+  <pre>
+  <%= YAML::dump(@response) %>
+  </pre>
+<% end %>
+
+<%= form_tag do %>
+  <%= field_set_tag "SEPA Account" do %>
+  	<%= render "shared/field", name: :accountHolderName, default: "XYZ Business" %>
+    <%= render "shared/field", name: :iban, default: "NL77ABNA0492122466" %>
+    <%= render "shared/field", name: :bic, default: "ABNANL2A" %>
+  <% end %>
+  <%= submit_tag "Submit", class: "btn btn-default" %>
+<% end %>

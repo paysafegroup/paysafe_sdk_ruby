@@ -1,0 +1,31 @@
+<h1>Submit an ACH Purchase Request</h1>
+<% unless @response.nil? %>
+  <pre>
+  <%= YAML::dump(@response) %>
+  </pre>
+<% end %>
+
+<%= form_tag do %>
+  <%= field_set_tag "ACH Purchase" do %>
+  	<%= render "shared/field", name: :merchantRefNum, default: SecureRandom.uuid %>
+  	<%= render "shared/field", name: :amount %>
+  	<%= render "shared/field", name: :accountHolderName, default: "XYZ Company" %>
+  	<%= render "shared/field", name: :accountType, default: "CHECKING" %>
+  	<%= render "shared/field", name: :accountNumber, default: "587158188" %>
+  	<%= render "shared/field", name: :routingNumber, default: "211589828" %>
+  	<%= render "shared/field", name: :payMethod, default: "WEB" %>
+
+  	<%= render "shared/field", name: :customerIp, default: "192.0.126.111" %>
+  	<%= render "shared/field", name: :firstName, default: "Joe" %>
+  	<%= render "shared/field", name: :lastName, default: "Smith" %>
+  	<%= render "shared/field", name: :email, default: "Joe.Smith@hotmail.com" %>
+  	
+  	<%= render "shared/field", name: :street, default: "100 Queen Street West" %>
+  	<%= render "shared/field", name: :city, default: "Los Angeles" %>
+  	<%= render "shared/field", name: :state, default: "CA" %>
+  	<%= render "shared/field", name: :country, default: "US" %>
+  	<%= render "shared/field", name: :zip, default: "90210" %>
+  	<%= render "shared/field", name: :phone, default: "3102649010" %>
+  <% end %>
+  <%= submit_tag "Submit", class: "btn btn-default" %>
+<% end %>

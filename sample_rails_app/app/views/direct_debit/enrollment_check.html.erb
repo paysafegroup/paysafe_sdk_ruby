@@ -1,0 +1,21 @@
+<h1>Direct Debit</h1>
+<% unless @result.nil? %>
+  <pre>
+  <%= YAML::dump(@result) %>
+  </pre>
+<% end %>
+<%= form_tag do %>
+  <%= field_set_tag "Billing Details" do %>
+    <%= render "shared/field", name: :merchant_customer_num, default: SecureRandom.uuid %>
+    <%= render "shared/field", name: :first_name %>
+    <%= render "shared/field", name: :last_name %>
+    <%= render "shared/field", name: :email, default: "test@test.com" %>
+    <%= render "shared/field", name: :street, default: "Fairoaks" %>
+    <%= render "shared/field", name: :city, default: "TN"  %>
+    <%= render "shared/field", name: :state, label: "State/Province", default: "ON" %>
+    <%= content_tag :div, class: "form-group" do %>
+      <%= label_tag :country %>
+      <%= select_tag :country, options_for_select({Canada: "CA", USA: "US" }, params[:country]), class: "form-control" %>
+    <% end %>
+    <%= render "shared/field", name: :zip, label: "Zip/Postal Code", default: "M5H 2N2" %>
+  <% end %>	

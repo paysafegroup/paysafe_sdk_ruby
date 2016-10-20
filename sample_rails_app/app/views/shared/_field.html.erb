@@ -1,0 +1,7 @@
+<% default ||= nil -%>
+<% label ||= nil -%>
+<% field ||= "text_field_tag" -%>
+<%= content_tag :div, class: "form-group" do %>
+	<%= label_tag name, label %>
+	<%= send field, name, params[name].nil? ? default : params[name], class: "form-control" %>
+<% end %>

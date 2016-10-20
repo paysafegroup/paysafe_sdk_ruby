@@ -1,0 +1,14 @@
+<h1>Create Mandate</h1>
+<% unless @response.nil? %>
+  <pre>
+  <%= YAML::dump(@response) %>
+  </pre>
+<% end %>
+
+<%= form_tag do %>
+  <%= field_set_tag "BACS Mandate" do %>
+  	<%= render "shared/field", name: :reference, default: "SUBSCRIPIP" %>
+    <%= render "shared/field", name: :bankAccountId, default: "5c9941e0-b30b-4cff-b7ff-eee697a76ab3" %>
+  <% end %>
+  <%= submit_tag "Submit", class: "btn btn-default" %>
+<% end %>

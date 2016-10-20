@@ -1,0 +1,15 @@
+<h1>Submit an EFT Purchase Request Using Payment Token</h1>
+<% unless @response.nil? %>
+  <pre>
+  <%= YAML::dump(@response) %>
+  </pre>
+<% end %>
+
+<%= form_tag do %>
+  <%= field_set_tag "EFT Purchase" do %>
+    <%= render "shared/field", name: :merchantRefNum, default: SecureRandom.uuid %>
+    <%= render "shared/field", name: :amount %>
+    <%= render "shared/field", name: :paymentToken, default: @eft_paymentToken %>
+  <% end %>
+  <%= submit_tag "Submit", class: "btn btn-default" %>
+<% end %>

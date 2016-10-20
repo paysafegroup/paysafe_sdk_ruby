@@ -1,0 +1,14 @@
+<h1>Create Mandate</h1>
+<% unless @response.nil? %>
+  <pre>
+  <%= YAML::dump(@response) %>
+  </pre>
+<% end %>
+
+<%= form_tag do %>
+  <%= field_set_tag "SEPA Mandate" do %>
+  	<%= render "shared/field", name: :reference, default: "SUBSCRIPTION103" %>
+    <%= render "shared/field", name: :bankAccountId, default: "6798b810-444e-4b80-8ba4-b39da8f991d8" %>
+  <% end %>
+  <%= submit_tag "Submit", class: "btn btn-default" %>
+<% end %>

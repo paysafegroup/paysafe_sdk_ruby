@@ -1,0 +1,41 @@
+<h1>CardPayment Vault</h1>
+<% unless @result.nil? %>
+<pre>
+  <%= YAML::dump(@result) %>
+  </pre>
+<% end %>
+<%= form_tag do %>
+  <%= field_set_tag "Billing Details" do %>
+    <%= render "shared/field", name: :merchant_customer_num, default: SecureRandom.uuid %>
+    <%= render "shared/field", name: :first_name %>
+    <%= render "shared/field", name: :last_name %>
+    <%= render "shared/field", name: :email, default: "test@test.com" %>
+    <%= render "shared/field", name: :street, default: "Fairoaks" %>
+    <%= render "shared/field", name: :city, default: "TN"  %>
+    <%= render "shared/field", name: :state, label: "State/Province", default: "ON" %>
+    <%= content_tag :div, class: "form-group" do %>
+      <%= label_tag :country %>
+      <%= select_tag :country, options_for_select({Canada: "CA", USA: "US" }, params[:country]), class: "form-control" %>
+    <% end %>
+    <%= render "shared/field", name: :zip, label: "Zip/Postal Code", default: "M5H 2N2" %>
+  <% end %>
+  <%= field_set_tag "Order Details" do %>
+    <%= render "shared/field", name: :merchant_ref_num, default: SecureRandom.uuid %>
+    <%= render "shared/field", name: :amount, default: "100.00" %>
+    <%= render "shared/field", name: :card_number, default: "4444333322221111" %>
+    <%= render "shared/field", name: :card_cvv, default: "123" %>
+    <%= content_tag :div, class: "form-group" do %>
+      <%= label_tag :card_exp_month %>
+      <%= select_month Date.today, { use_month_numbers: true }, { class: "form-control" } %>
+    <% end %>
+    <%= content_tag :div, class: "form-group" do %>
+      <%= label_tag :card_exp_year %>
+      <%= select_year Date.today, {}, { class: "form-control" } %>
+    <% end %>
+    
+  <% end %>
+   
+   
+   
+  <%= submit_tag "Submit", class: "btn btn-default" %>
+<% end %>

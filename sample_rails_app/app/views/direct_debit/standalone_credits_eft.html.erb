@@ -1,0 +1,30 @@
+<h1>Submit EFT Standalone Credit Request</h1>
+<% unless @response.nil? %>
+  <pre>
+  <%= YAML::dump(@response) %>
+  </pre>
+<% end %>
+
+<%= form_tag do %>
+  <%= field_set_tag "EFT Standalone Credit" do %>
+  	<%= render "shared/field", name: :merchantRefNum, default: SecureRandom.uuid %>
+  	<%= render "shared/field", name: :amount %>
+  	<%= render "shared/field", name: :accountHolderName, default: "XYZ Company" %>
+  	<%= render "shared/field", name: :accountNumber, default: "98877219" %>
+  	<%= render "shared/field", name: :transitNumber, default: "22446" %>
+  	<%= render "shared/field", name: :institutionId, default: "001" %>
+
+  	<%= render "shared/field", name: :customerIp, default: "192.0.126.111" %>
+  	<%= render "shared/field", name: :firstName, default: "Joe" %>
+  	<%= render "shared/field", name: :lastName, default: "Smith" %>
+  	<%= render "shared/field", name: :email, default: "Joe.Smith@hotmail.com" %>
+  	
+  	<%= render "shared/field", name: :street, default: "100 Queen Street West" %>
+  	<%= render "shared/field", name: :city, default: "Ottawa" %>
+  	<%= render "shared/field", name: :state, default: "ON" %>
+  	<%= render "shared/field", name: :country, default: "CA" %>
+  	<%= render "shared/field", name: :zip, default: "M1M1M1" %>
+  	<%= render "shared/field", name: :phone, default: "6139991100" %>
+  <% end %>
+  <%= submit_tag "Submit", class: "btn btn-default" %>
+<% end %>

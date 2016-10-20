@@ -1,0 +1,16 @@
+<h1>Create Bank Account</h1>
+<% unless @response.nil? %>
+  <pre>
+  <%= YAML::dump(@response) %>
+  </pre>
+<% end %>
+
+<%= form_tag do %>
+  <%= field_set_tag "ACH Account" do %>
+  	<%= render "shared/field", name: :accountNumber, default: rand(1000..1000000000000) %>
+    <%= render "shared/field", name: :routingNumber, default: "123456789" %>
+    <%= render "shared/field", name: :accountHolderName, default: "XYZ Business" %>
+    <%= render "shared/field", name: :accountType, default: "CHECKING" %>
+  <% end %>
+  <%= submit_tag "Submit", class: "btn btn-default" %>
+<% end %>
