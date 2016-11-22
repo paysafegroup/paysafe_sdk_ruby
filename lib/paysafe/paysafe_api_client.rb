@@ -145,7 +145,7 @@ modulePaysafe
         when 415
           exception = APIError
         else
-          exception = http_code >= 500 ? APIError : OptimalError
+          exception = http_code >= 500 ? APIError : PaysafeError
       end
 
       return exception.new(response), code.to_s + ": " + message
