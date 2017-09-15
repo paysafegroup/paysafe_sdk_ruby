@@ -24,7 +24,7 @@ require "base64"
 require 'yaml'
 require 'json'
 
-modulePaysafe
+module Paysafe
   class PaysafeApiClient
     API_TEST = "https://api.test.paysafe.com"
     API_LIVE = "https://api.paysafe.com"

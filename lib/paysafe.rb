@@ -21,7 +21,7 @@
 require_relative "paysafe/card_payment_service"
 require "paysafe/customer_vault_service"
 require "paysafe/environment"
-require "paysafe/hosted_payment_service"
+# require "paysafe/hosted_payment_service"
 require "paysafe/json_object"
 require "paysafe/paysafe_api_client"
 require "paysafe/pagerator"
@@ -49,13 +49,13 @@ require "paysafe/customer_vault/sepa_bank_account"
 require "paysafe/customer_vault/bacs_bank_account"
 require "paysafe/customer_vault/mandate"
 
-require "paysafe/hosted_payment/billing_details"
-require "paysafe/hosted_payment/card"
-require "paysafe/hosted_payment/order"
-require "paysafe/hosted_payment/refund"
-require "paysafe/hosted_payment/settlement"
-require "paysafe/hosted_payment/shipping_details"
-require "paysafe/hosted_payment/transaction"
+# require "paysafe/hosted_payment/billing_details"
+# require "paysafe/hosted_payment/card"
+# require "paysafe/hosted_payment/order"
+# require "paysafe/hosted_payment/refund"
+# require "paysafe/hosted_payment/settlement"
+# require "paysafe/hosted_payment/shipping_details"
+# require "paysafe/hosted_payment/transaction"
 
 require "paysafe/errors/paysafe"
 require "paysafe/errors/api"
@@ -82,5 +82,5 @@ require "paysafe/three_d_secure/card_expiry"
 require "paysafe/three_d_secure/enrollment_checks"
 require "paysafe/three_d_secure/error"
 
-module paysafe
+module Paysafe
 end

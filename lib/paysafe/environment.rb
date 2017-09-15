@@ -17,7 +17,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  DOC
 
-modulePaysafe
+module Paysafe
   class Environment
     TEST = "PAYSAFE:TEST";
     LIVE = "PAYSAFE:LIVE";
