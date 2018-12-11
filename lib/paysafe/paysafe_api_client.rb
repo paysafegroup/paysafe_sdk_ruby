@@ -98,6 +98,7 @@ module Paysafe
       end
       net["Authorization"] = "Basic " + Base64.strict_encode64(@key_id + ":" + @key_password)
       net["Content-Type"] = "application/json"
+      net["SDK-Type"] = "Paysafe_Ruby_SDK"
       response = http.request(net)
       response_code = response.code.to_i
 
